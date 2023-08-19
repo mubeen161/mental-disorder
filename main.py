@@ -208,7 +208,7 @@ def main():
         # 'Stress Level': stress_levels_page,
         # 'Topographic Brain Activity':topographic_brain_activity,
         'Disorder Comparison':disorder_comparison,
-        'Stress Level': stress_levels_page
+        'Stress Level': stress_level_page
         # 'Brain Simulation':brain_simulation,
         # 'AI - Assistant ':chat
     }
