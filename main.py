@@ -75,6 +75,32 @@ chs = {'FP1': [-0.03, 0.08], 'FP2': [0.03, 0.08], 'F7': [-0.073, 0.047], 'F3': [
        'Pz': [0, -0.038], 'P4': [0.04, -0.041], 'T6': [0.07, -0.047], 'O1': [-0.03, -0.08], 'O2': [0.03, -0.08]}
 channels = pd.DataFrame(chs).transpose()
 
+def home_page():
+    st.title('Brain-Wave Analytics')
+    # st.write('This is the home page.')
+
+    # Random text
+    st.header('Muffakham Jah College of Engineering and Technology')
+  
+    
+    # Display images
+    image_paths = ['project/eeg.jpg', 'project/wave.png', 'project/process.jpg', 'project/density.png','project/pie.png','project/bar.png','project/chart.png','project/future.png']
+    # List of captions for the images
+    captions = ['EEG Recording', 'Types of Brain Waves', 'Process of EEG to ML', 'Density Plot of main disorder','Main Disorder Ratio','Specific Disorder Ratio','Male-Famale Ratio','Wearable Devices Available']
+    # Define the number of columns in the grid
+    num_columns = 2
+    # Calculate the number of rows based on the number of images and columns
+    num_rows = len(image_paths) // num_columns
+    # Loop over the rows and columns to display the images in a grid
+    for row in range(num_rows):
+        col1, col2 = st.columns(num_columns)
+        for col in [col1, col2]:
+            if image_paths and captions:
+                image_path = image_paths.pop(0)
+                caption = captions.pop(0)
+                image = Image.open(image_path)
+                col.image(image, caption=caption, use_column_width=True)
+
 def plot_eeg(levels, positions, axes, fig, ch_names=None, cmap='Spectral_r', cb_pos=(0.9, 0.1),cb_width=0.04, cb_height=0.9, marker=None, marker_style=None, vmin=None, vmax=None, **kwargs):
   if 'mask' not in kwargs:
     mask = np.ones(levels.shape[0], dtype='bool')
@@ -200,7 +226,7 @@ def stress_level_page():
 def main():
     # Dropdown menu for page selection
     page_options = {
-        # 'Home': home_page,
+        'Home': home_page,
         'Prediction': prediction_page,
         # 'Plots': plots_page,
         # 'Wave Compare': wave_compare_page,
