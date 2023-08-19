@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import mne
 from PIL import Image
 # Define Prediction page content
-model = pickle.load(open("E:/Brainwave Analysis/project/model.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 df = pd.read_csv('https://raw.githubusercontent.com/mubeen161/Datasets/main/EEG.machinelearing_data_BRMH.csv')
 df = df.rename({'sex': 'gender', 'eeg.date': 'eeg date', 'main.disorder': 'main disorder',
                 'specific.disorder': 'specific disorder'}, axis=1)
