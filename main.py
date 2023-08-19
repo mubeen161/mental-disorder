@@ -180,11 +180,11 @@ def disorder_comparison():
    
     # Plot the first subplot
     plot_eeg(test_schizo, channels.to_numpy(), ax1, fig, marker_style={'markersize': 4, 'markerfacecolor': 'black'})
-    ax1.set_title(test_schizo)
+    ax1.set_title(f'{test_schizo}')
    
     # Plot the second subplot
     plot_eeg(test_control, channels.to_numpy(), ax2, fig, marker_style={'markersize': 4, 'markerfacecolor': 'black'})
-    ax2.set_title(test_control)
+    ax2.set_title(f'{test_control}')
    
     # Display the plot
     st.pyplot(fig)
@@ -212,7 +212,7 @@ def stress_level_page():
     ax.imshow(np.arange(min_value, max_value).reshape(1, -1), cmap=cmap, norm=norm, aspect='auto')
     ax.text(0, 0, str(min_value), ha='left', va='center', color='black', weight='light')
     ax.text(max_value - min_value, 0, str(max_value), ha='right', va='center', color='black', weight='light')
-    plt.title('Stress level using {column_name} brain waves')
+    plt.title(f'Stress level using {column_name} brain waves')
     st.pyplot(fig)
     # st.write("Brain Simulation selected")
     img_path = "stresslevel.jpg"
