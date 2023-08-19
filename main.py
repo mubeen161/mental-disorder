@@ -7,6 +7,34 @@ import matplotlib.pyplot as plt
 import mne
 from PIL import Image
 # Define Prediction page content
+
+st.set_page_config(
+    page_title="Brainwave Analytics",
+    page_icon="📊",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+custom_theme = """
+        [theme]
+        primaryColor="#19454c"
+        backgroundColor="#316371"
+        secondaryBackgroundColor="#131743"
+        textColor="#ffffff"
+        font="serif"
+    """
+
+    # Apply the custom theme
+st.write(f"<style>{custom_theme}</style>", unsafe_allow_html=True)
+
+hide_streamlit_style = """
+        <style>
+        #MainMenu, .stNotification, .stSystemWarning {
+            display: none;
+        }
+        </style>
+    """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 model = pickle.load(open("model.pkl", "rb"))
 df = pd.read_csv('https://raw.githubusercontent.com/mubeen161/Datasets/main/EEG.machinelearing_data_BRMH.csv')
 df = df.rename({'sex': 'gender', 'eeg.date': 'eeg date', 'main.disorder': 'main disorder',
@@ -179,7 +207,8 @@ def main():
         # 'Brain Compare': brain_compare_page,
         # 'Stress Level': stress_levels_page,
         # 'Topographic Brain Activity':topographic_brain_activity,
-        'Disorder Comparison':disorder_comparison
+        'Disorder Comparison':disorder_comparison,
+        'Stress Level': stress_levels_page
         # 'Brain Simulation':brain_simulation,
         # 'AI - Assistant ':chat
     }
