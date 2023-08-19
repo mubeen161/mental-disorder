@@ -80,7 +80,7 @@ def stress_level_page():
     plt.title('Stress level using beta brain waves')
     st.pyplot(fig)
     # st.write("Brain Simulation selected")
-    img_path = "E:/Brainwave Analysis/project/stresslevel.jpg"
+    img_path = "stresslevel.jpg"
     img=Image.open(img_path)
     # Display the GIF image
     st.image(img,caption='Reference Chart' ,use_column_width=True)
