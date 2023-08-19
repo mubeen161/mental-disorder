@@ -11,6 +11,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/mubeen161/Datasets/main/EEG.
 df = df.rename({'sex': 'gender', 'eeg.date': 'eeg date', 'main.disorder': 'main disorder',
                 'specific.disorder': 'specific disorder'}, axis=1)
 df['age'] = df['age'].round(decimals=0)
+df=df.drop('gender',axis=1)
 df1=df.loc[:,'gender':'specific disorder']
 df1=df1.drop('eeg date',axis=1)
 # Define Prediction page content
