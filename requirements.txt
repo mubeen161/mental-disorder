@@ -1,0 +1,11 @@
+matplotlib
+pandas
+numpy
+seaborn
+mne
+setuptools
+wheel
+scikit-learn
+pickle5
+transformers
+torch
