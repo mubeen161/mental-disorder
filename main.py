@@ -180,11 +180,11 @@ def disorder_comparison():
    
     # Plot the first subplot
     plot_eeg(test_schizo, channels.to_numpy(), ax1, fig, marker_style={'markersize': 4, 'markerfacecolor': 'black'})
-    ax1.set_title(f'{test_schizo}')
+    ax1.set_title('Disorder 1')
    
     # Plot the second subplot
     plot_eeg(test_control, channels.to_numpy(), ax2, fig, marker_style={'markersize': 4, 'markerfacecolor': 'black'})
-    ax2.set_title(f'{test_control}')
+    ax2.set_title('Disorder 2')
    
     # Display the plot
     st.pyplot(fig)
