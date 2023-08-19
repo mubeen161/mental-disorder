@@ -30,9 +30,9 @@ df.rename(reformat_name, axis=1, inplace=True)
 
 
 # Mean powers per main disorder
-main_mean = df.groupby('main disorder').mean().reset_index()
+main_mean = df.groupby('main disorder').mean(numeric_only=True).reset_index()
 # Mean powers per specific disorder
-spec_mean = df.groupby('specific disorder').mean().reset_index()
+spec_mean = df.groupby('specific disorder').mean(numeric_only=True).reset_index()
 # List of bands
 msd=['Mood disorder','Addictive disorder','Trauma and stress related disorder','Schizophrenia','Anxiety disorder','Healthy control','Obsessive compulsive disorder']
 bands = ['delta', 'theta', 'alpha', 'beta', 'highbeta', 'gamma']
