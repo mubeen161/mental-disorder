@@ -12,6 +12,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/mubeen161/Datasets/main/EEG.
 df = df.rename({'sex': 'gender', 'eeg.date': 'eeg date', 'main.disorder': 'main disorder',
                 'specific.disorder': 'specific disorder'}, axis=1)
 df['age'] = df['age'].round(decimals=0)
+df=df.drop('gender',axis=1)
 df1=df.loc[:,'gender':'specific disorder']
 df1=df1.drop('eeg date',axis=1)
 def reformat_name(name):
@@ -66,7 +67,8 @@ def prediction_page():
     data['md'] = md.fit_transform(data['md'])
     sex=LabelEncoder()
     data['sex'] = sex.fit_transform(data['sex'])
-    data['sd'] = md.fit_transform(data['sd'])
+    sd = LabelEncoder()
+    data['sd'] = sd.fit_transform(data['sd'])
     data = data.drop(['eeg.date', 'no.'], axis=1)
     data=data.round(4)
     X = data.drop('sd', axis=1)
