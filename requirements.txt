@@ -9,3 +9,4 @@ scikit-learn
 pickle5
 transformers
 torch
+catboost
