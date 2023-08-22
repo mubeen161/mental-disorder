@@ -301,7 +301,7 @@ def main():
     # Dropdown menu for page selection
     page_options = {
         'Home': home_page,
-        'Prediction': prediction_page,
+        'Disorder Prediction': prediction_page,
         # 'Plots': plots_page,
         # 'Wave Compare': wave_compare_page,
         # 'Brain Compare': brain_compare_page,
