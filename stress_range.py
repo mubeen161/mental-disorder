@@ -6,16 +6,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import mne
 from PIL import Image
-# model = pickle.load(open("model.pkl", "rb"))
+# Define Prediction page content
+# model = pickle.load(open("E:/Brainwave Analysis/project/model.pkl", "rb"))
 df = pd.read_csv('https://raw.githubusercontent.com/mubeen161/Datasets/main/EEG.machinelearing_data_BRMH.csv')
 df = df.rename({'sex': 'gender', 'eeg.date': 'eeg date', 'main.disorder': 'main disorder',
                 'specific.disorder': 'specific disorder'}, axis=1)
 df['age'] = df['age'].round(decimals=0)
-
+df=df.drop('gender',axis=1)
 df1=df.loc[:,'gender':'specific disorder']
-df1=df.drop('gender',axis=1)
 df1=df1.drop('eeg date',axis=1)
-# Define Prediction page content
 def reformat_name(name):
     splitted = name.split(sep='.')
     if len(splitted) < 5:
@@ -30,9 +29,9 @@ df.rename(reformat_name, axis=1, inplace=True)
 
 
 # Mean powers per main disorder
-main_mean = df.groupby('main disorder').mean(numeric_only=True).reset_index()
+main_mean = df.groupby('main disorder').mean().reset_index()
 # Mean powers per specific disorder
-spec_mean = df.groupby('specific disorder').mean(numeric_only=True).reset_index()
+spec_mean = df.groupby('specific disorder').mean().reset_index()
 # List of bands
 msd=['Mood disorder','Addictive disorder','Trauma and stress related disorder','Schizophrenia','Anxiety disorder','Healthy control','Obsessive compulsive disorder']
 bands = ['delta', 'theta', 'alpha', 'beta', 'highbeta', 'gamma']
@@ -82,7 +81,7 @@ def stress_level_page():
     plt.title('Stress level using beta brain waves')
     st.pyplot(fig)
     # st.write("Brain Simulation selected")
-    img_path = "stresslevel.jpg"
+    img_path = "E:/Brainwave Analysis/project/stresslevel.jpg"
     img=Image.open(img_path)
     # Display the GIF image
     st.image(img,caption='Reference Chart' ,use_column_width=True)
