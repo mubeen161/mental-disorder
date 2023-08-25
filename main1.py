@@ -294,7 +294,10 @@ def stress_level_page():
     # Display the GIF image
     st.image(img,caption='Reference Chart' ,use_column_width=True)
 
-
+def brain_simulation():
+    st.title("Brain Simulation selected")
+    video_url = "plot.mp4"
+    st.video(video_url)
 
     # Display the plot using Streamlit
 def main():
@@ -308,8 +311,8 @@ def main():
         # 'Stress Level': stress_levels_page,
         # 'Topographic Brain Activity':topographic_brain_activity,
         'Disorder Comparison':disorder_comparison,
+        'Brain Simulation':brain_simulation,
         'Stress Level': stress_level_page,
-        # 'Brain Simulation':brain_simulation,
         # 'AI - Assistant ':chat
         'Stress Prediction':stress_pred
     }
