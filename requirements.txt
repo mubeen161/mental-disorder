@@ -1,6 +1,5 @@
 matplotlib
 pandas
-numpy
 seaborn
 mne
 setuptools
@@ -9,4 +8,5 @@ scikit-learn
 pickle5
 transformers
 torch
-catboost
+numpy==1.23.5 
+catboost==1.2.0
